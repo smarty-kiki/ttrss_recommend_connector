@@ -5,7 +5,7 @@ command('connector:run', '启动模拟同步演练', function ()
     http_json([
         'url'    => 'http://tag.yao-yang.cn/goods/delete_keep_100',
         'method' => 'POST',
-    );
+    ]);
 
     $last_good_info = http_json('http://tag.yao-yang.cn/last_one_good_info');
 
