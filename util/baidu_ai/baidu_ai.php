@@ -43,20 +43,14 @@ function _baidu_ai_access_token()
 
     if (is_null($access_token)) {
 
-        $access_token = cache_get($cache_key);
+        $info = http_json("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=$client_id&client_secret=$client_secret");
 
-        if (! $access_token) {
+        if (array_key_exists('access_token', $info)) {
 
-            $info = http_json("https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=$client_id&client_secret=$client_secret");
+            $access_token = $info['access_token'];
 
-            if (array_key_exists('access_token', $info)) {
-
-                $access_token = $info['access_token'];
-
-                cache_set($cache_key, $access_token, $info['expires_in'] - 5);
-            } else {
-                throw new Exception($info['error_description']);
-            }
+        } else {
+            throw new Exception($info['error_description']);
         }
     }
 
