@@ -11,7 +11,6 @@ define('QUEUE_JOB_DIR', COMMAND_DIR.'/queue_job');
 
 include FRAME_DIR.'/function.php';
 include FRAME_DIR.'/database/mysql.php';
-include FRAME_DIR.'/cache/redis.php';
 include FRAME_DIR.'/queue/beanstalk.php';
 include FRAME_DIR.'/log/file.php';
 
