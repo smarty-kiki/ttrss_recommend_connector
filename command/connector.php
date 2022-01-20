@@ -10,8 +10,8 @@ command('connector:run', '启动模拟同步演练', function ()
     $last_good_info = http_json('http://tag.yao-yang.cn/last_one_good_info');
 
     $last_id = 0;
-    if (isset($last_good_info['data']['name'])) {
-        $last_id = $last_good_info['data']['name'];
+    if (isset($last_good_info['data']['extend_id'])) {
+        $last_id = $last_good_info['data']['extend_id'];
     }
 
     $rows = db_query(
