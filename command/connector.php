@@ -25,8 +25,10 @@ command('connector:run', '启动模拟同步演练', function ()
         $good_info = http_json([
             'url' => 'http://tag.yao-yang.cn/goods/add',
             'data' => [
-                'name' => $row['id'],
-                'url'  => $row['link'],
+                'url'  => 'http://tag.yao-yang.cn/static/good_view.html?extend_id='.$row['id'],
+                'name' => $row['title'],
+                'content' => $row['content'],
+                'extend_id' => $row['id'],
             ],
         ]);
 
